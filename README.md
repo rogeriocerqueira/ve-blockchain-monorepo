@@ -1,152 +1,83 @@
-# ve-blockchain-monorepo-
-Sistema de recarga para VEs com blockchain, garantindo transparência e segurança. Inclui app do usuário (React/Flutter), backend (Node.js/Hyperledger) e integração com postos. Tecnologias: Smart Contracts, MQTT, Web3.
-# **📌 README - Sistema de Recarga de Veículos Elétricos (VEs) com Blockchain**  
+# **📌 README - Sistema de Recarga de VEs com Blockchain em Python**  
 
 **Repositório Oficial** | **Status: Em Desenvolvimento**  
 
 ---
 
 ## **🚀 Visão Geral**  
-Este projeto implementa um **sistema descentralizado de recarga para Veículos Elétricos (VEs) utilizando blockchain**, garantindo **transparência, segurança e auditabilidade** nas transações de reserva, recarga e pagamento.  
+Sistema descentralizado de recarga para **Veículos Elétricos (VEs)** usando blockchain, totalmente desenvolvido em Python. Garante **transparência, segurança e auditabilidade** nas transações de reserva, recarga e pagamento.  
 
-🔹 **Problema Resolvido**:  
-- Elimina intermediários e centralização, reduzindo fraudes e disputas.  
-- Registra todas as transações em um **livro-razão imutável** (blockchain).  
-- Oferece confiança para usuários e empresas de recarga.  
-
----
-
-## **🎯 Funcionalidades**  
-✔️ **Reserva de Pontos de Recarga**  
-✔️ **Histórico de Transações Auditável**  
-✔️ **Pagamentos Automatizados via Smart Contracts**  
-✔️ **Integração com Postos de Recarga**  
+🔹 **Diferenciais**:  
+- 100% Python (back-end, smart contracts e integração)  
+- Blockchain leve para IoT (ex: **Hyperledger Fabric com Python-SDK**)  
+- Ideal para postos de recarga com hardware embarcado  
 
 ---
 
-## **📂 Estrutura do Projeto (Monorepo)**  
+## **📂 Estrutura do Projeto**  
 ```plaintext
 /  
-├── client/          # Aplicativo do usuário (React/Flutter)  
-├── server/          # Backend + Rede Blockchain (Node.js/Hyperledger)  
-├── stations/        # Código para postos de recarga (IoT/firmware)  
-├── docs/            # Documentação técnica e diagramas  
-└── README.md        # Este arquivo  
+├── client/          # Interface CLI ou Web (Flask/Dash)  
+├── blockchain/      # Rede Hyperledger Fabric (Python-SDK)  
+├── smart_contracts/ # Chaincode em Python (Fabric)  
+├── api/             # REST API (FastAPI/Flask)  
+├── stations/        # Integração com postos (MQTT/GPIO)  
+└── docs/            # Documentação  
 ```
 
 ---
 
-## **🛠️ Tecnologias Utilizadas**  
-| **Módulo**       | **Tecnologias**                                  |  
-|------------------|-------------------------------------------------|  
-| **Cliente**      | React.js, Flutter, Web3.js (para blockchain)    |  
-| **Servidor**     | Node.js, Hyperledger Fabric (ou Ethereum)       |  
-| **Blockchain**   | Smart Contracts (Solidity/Chaincode)            |  
-| **Postos**       | Python, MQTT (comunicação em tempo real)        |  
+## **🛠️ Tecnologias**  
+| **Módulo**       | **Tecnologias Python**                          |  
+|------------------|-----------------------------------------------|  
+| **Cliente**      | Flask (web) / Textual (CLI)                    |  
+| **Blockchain**   | Hyperledger Fabric Python-SDK                  |  
+| **Smart Contracts** | Chaincode Python (Fabric)                 |  
+| **API**          | FastAPI (REST) / WebSockets                    |  
+| **Postos**       | Paho-MQTT / RPi.GPIO (para hardware)          |  
 
 ---
 
-## **⚙️ Como Executar o Projeto**  
+## **⚙️ Como Executar**  
+```bash
+# 1. Clone o repositório  
+git clone https://github.com/seu-usuario/ve-python-blockchain.git  
 
-### **Pré-requisitos**  
-- Node.js (v18+)  
-- Docker (para blockchain local)  
-- Git  
+# 2. Configure o ambiente  
+python -m venv venv && source venv/bin/activate  
+pip install -r requirements.txt  
 
-### **Passos para Configuração**  
-1. **Clone o repositório**:  
-   ```bash
-   git clone https://github.com/seu-usuario/ve-blockchain.git
-   cd ve-blockchain
-   ```
+# 3. Inicie a rede blockchain  
+cd blockchain && ./start_network.py  
 
-2. **Instale as dependências**:  
-   ```bash
-   cd client && npm install
-   cd ../server && npm install
-   ```
-
-3. **Inicie a rede blockchain local (ex: Hyperledger Fabric)**:  
-   ```bash
-   cd server/blockchain
-   ./start-network.sh  # Script personalizado para deploy da rede
-   ```
-
-4. **Rode o cliente e o servidor**:  
-   ```bash
-   # Em um terminal:  
-   cd client && npm start  
-   # Em outro terminal:  
-   cd server && npm run dev  
-   ```
+# 4. Rode a API e o cliente  
+cd ../api && uvicorn main:app --reload  
+cd ../client && python app.py  
+```
 
 ---
 
 ## **📄 Documentação**  
-Consulte a pasta [`/docs`](/docs) para:  
-- **Arquitetura do sistema** (`architecture.md`)  
-- **API REST/WebSocket** (`api.md`)  
-- **Fluxo de transações na blockchain** (`transactions.md`)  
+- [Arquitetura](/docs/architecture.md): Diagrama do sistema  
+- [API](/docs/api.md): Endpoints FastAPI  
+- [Chaincode](/docs/chaincode.md): Smart contracts em Python  
 
 ---
 
 ## **🤝 Como Contribuir**  
-1. Faça um **fork** do projeto.  
-2. Crie uma branch (`git checkout -b feature/nova-funcionalidade`).  
-3. Envie um **pull request** com suas alterações.  
-
-**Critérios para Merge**:  
-✔️ Testes passando  
-✔️ Documentação atualizada  
-✔️ Código seguindo padrões ESLint/Prettier  
+1. Faça um **fork** e crie uma branch (`git checkout -b feature/foo`).  
+2. Envie um **PR** com testes e documentação atualizada.  
 
 ---
 
 ## **📜 Licença**  
-Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para detalhes.  
+MIT. Veja [LICENSE](LICENSE).  
 
 ---
 
-## **📞 Contato**  
-**Equipe**: [Seu Nome] | [Email]  
-**Repositório**: [github.com/seu-usuario/ve-blockchain](https://github.com/seu-usuario/ve-blockchain)  
-
----
-
-### **🌟 Por Que Usar Blockchain?**  
-> _"A tecnologia blockchain garante que todas as transações sejam **imutáveis, transparentes e seguras**, eliminando a necessidade de confiar em um intermediário centralizado."_  
-
----
-
-**🔗 Links Úteis**:  
-- [Hyperledger Fabric Docs](https://hyperledger-fabric.readthedocs.io/)  
-- [Solidity (Ethereum)](https://docs.soliditylang.org/)  
-
----
-
-**🎉 Pronto para começar?** Clone o repositório e siga os passos acima!  
-
-```bash
-git clone https://github.com/seu-usuario/ve-blockchain.git
-```  
+### **Descrição para GitHub (350 caracteres)**  
+"Sistema de recarga para VEs com blockchain em Python. Inclui: CLI/web (Flask), Hyperledger Fabric (Python-SDK), FastAPI e integração com postos via MQTT. Smart contracts em Python. Seguro e descentralizado."  
 
 --- 
 
-**⬆️ Apoie o projeto com uma ⭐ no GitHub!**  
-
---- 
-
-### **Descrição do Repositório (GitHub)**  
-```markdown
-Sistema de recarga para Veículos Elétricos (VEs) baseado em blockchain, garantindo transparência e segurança nas transações. Inclui:  
-- 🖥️ Aplicativo do usuário (React/Flutter)  
-- ⛓️ Backend com Hyperledger Fabric/Ethereum  
-- ⚡ Integração com postos de recarga  
-- 📄 Documentação detalhada  
-
-Tecnologias: Node.js, React, Solidity/Chaincode, MQTT.  
-```  
-
----
-
-Esse README é **autoexplicativo, organizado e convidativo** para colaboradores. Se precisar de ajustes, posso adaptar! 😊
+🐍⚡
