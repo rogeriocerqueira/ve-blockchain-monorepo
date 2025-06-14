@@ -1,0 +1,12 @@
+services:
+  ve-client:
+    build:
+      context: .
+      dockerfile: client/Dockerfile  # Caminho explícito
+    volumes:
+      - ./client:/app  # Mount para desenvolvimento
+    environment:
+      - PYTHONUNBUFFERED=1  # Melhor log do Python
+    stdin_open: true
+    tty: true
+    # Remove o command redundante (já definido no Dockerfile)

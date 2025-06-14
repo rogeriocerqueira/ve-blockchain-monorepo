@@ -1,0 +1,88 @@
+# ========================================
+# VE Blockchain Project - Git Ignore
+# ========================================
+
+### Python ###
+__pycache__/
+*.py[cod]
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+
+# Virtualenv
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+### Docker ###
+**/docker-compose.override.yml
+**/.dockerignore
+**/.env
+**/docker-data/
+
+# Logs
+*.log
+logs/
+
+# Arquivos temporários
+*.tmp
+*.temp
+*~
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+### Blockchain ###
+# Arquivos de rede/credenciais
+**/network.json
+**/connection_profile.yaml
+**/*_sk  # Chaves privadas
+**/*.pem
+**/*.cert
+
+# Chaincode builds
+**/chaincode/build/
+**/chaincode/node_modules/
+
+### Testes ###
+.coverage
+htmlcov/
+.pytest_cache/
+
+### Python específico ###
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+
+# PyCharm
+.idea/
+*.iml
+
+# VS Code
+.settings/

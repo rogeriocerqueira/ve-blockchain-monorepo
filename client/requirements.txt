@@ -1,0 +1,13 @@
+# Core
+click==8.1.7
+
+# Configuração
+python-dotenv==1.0.1
+
+# Blockchain
+fabric-sdk-py==1.0.0
+
+
+# Dev dependencies
+pytest==7.4.0
+pylint==2.17.4
