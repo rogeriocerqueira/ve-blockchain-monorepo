@@ -3,7 +3,7 @@ services:
     image: trufflesuite/ganache-cli
     ports:
       - "7545:7545"
-    command: ganache-cli -h 127.0.0.1 -p 7545 -m "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat"
+    command: ganache-cli -h 0.0.0.0 -p 7545 -m "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat"
     networks:
       - blockchain
 
@@ -21,4 +21,6 @@ services:
 networks:
   blockchain:
     driver: bridge
+
+    
 

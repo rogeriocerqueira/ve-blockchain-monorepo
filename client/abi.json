@@ -1,0 +1,67 @@
+[
+  {
+    "inputs": [
+      { "internalType": "string", "name": "cliente", "type": "string" },
+      { "internalType": "string", "name": "posto", "type": "string" }
+    ],
+    "name": "reservarPosto",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "cliente", "type": "string" },
+      { "internalType": "string", "name": "posto", "type": "string" }
+    ],
+    "name": "iniciarRecarga",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "cliente", "type": "string" },
+      { "internalType": "string", "name": "posto", "type": "string" }
+    ],
+    "name": "finalizarRecarga",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "cliente", "type": "string" },
+      { "internalType": "string", "name": "posto", "type": "string" }
+    ],
+    "name": "consultarHistorico",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "uint256", "name": "id", "type": "uint256" },
+          { "internalType": "string", "name": "tipo", "type": "string" },
+          { "internalType": "string", "name": "cliente", "type": "string" },
+          { "internalType": "string", "name": "posto", "type": "string" },
+          { "internalType": "uint256", "name": "valor", "type": "uint256" },
+          { "internalType": "uint256", "name": "timestamp", "type": "uint256" },
+          { "internalType": "string", "name": "status", "type": "string" }
+        ],
+        "internalType": "struct PostoRecarga.Transacao[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "cliente", "type": "string" },
+      { "internalType": "string", "name": "posto", "type": "string" }
+    ],
+    "name": "realizarPagamento",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  }
+]

@@ -105,3 +105,28 @@ O SDK Python funciona bem para testes, protótipos e alguns casos simples, mas n
 💰 Pagamento
 
 📜 Consulta de histórico
+
+
+
++---------------------------------------+
+Passo a passo para testar as funções 
++---------------------------------------+
+
+truffle console :: Entra no terminal truffle
+await contrato.reservarPosto("CLIENTE01", "POSTO01");                                                      :: Fazer uma Reserva
+await contrato.realizarPagamento("CLIENTE01", "POSTO01", { value: web3.utils.toWei('1', 'ether') });       :: Realizar Pagamaento
+
+
+await contrato.iniciarRecarga("CLIENTE01", "POSTO01");                                                     ::  Iniciar Recarga
+await contrato.finalizarRecarga("CLIENTE01", "POSTO01");                                                   ::  Finalizar Recarga
+
+
+const historico = await contrato.consultarHistorico();                                                     :: Consultar Histórico
+cconsole.log(historico);                                                                                           
+
+const contador = await contrato.contador();                                                                :: Conferir o contador de transações
+console.log(contador.toString());
+ 
+ Obs: 1. Rodar script ./setup_blockchain.sh (no raiz)     
+      2. Entrar no cliente e criar o venv
+      3. Testar as funções (smart contract)
