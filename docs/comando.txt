@@ -79,10 +79,29 @@ chmod +x ajustar_permissoes.sh                                                 :
 
 
 
-python3 -m client.main reservar CLIENTE01 POSTO01                              :: para simular transação do nó do blockchain execute dentro do /client
+python3 -m main reservar CLIENTE01 POSTO01                                     :: para simular transação do nó do blockchain execute dentro do /client
+
+
++---------------------------------------+
+Verifica dependências adicionais 
++---------------------------------------+
+
+pip install grpcio protobuf                                                    :: O SDK Python do Hyperledger Fabric depende fortemente de bibliotecas como grpc, aiohttp e outras. Verifique se seu ambiente possui o protobuf e o grpcio atualizados:
 
 
 
 
 
+⚠️ Atenção:
+Esse SDK (fabric-sdk-py) não é mais mantido oficialmente pela Hyperledger. A Hyperledger recomenda o uso do SDK em Node.js, Go ou Java.
+O SDK Python funciona bem para testes, protótipos e alguns casos simples, mas não é indicado para produção.
 
+🔋 Iniciar recarga
+
+🏁 Finalizar recarga
+
+🗓️ Reserva de posto
+
+💰 Pagamento
+
+📜 Consulta de histórico

@@ -1,12 +1,24 @@
 services:
-  ve-client:
-    build:
-      context: .
-      dockerfile: client/Dockerfile  # Caminho explícito
+  ganache:
+    image: trufflesuite/ganache-cli
+    ports:
+      - "7545:7545"
+    command: ganache-cli -h 127.0.0.1 -p 7545 -m "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat"
+    networks:
+      - blockchain
+
+  client:
+    build: ./client
     volumes:
-      - ./client:/app  # Mount para desenvolvimento
-    environment:
-      - PYTHONUNBUFFERED=1  # Melhor log do Python
+      - ./client:/app
+    depends_on:
+      - ganache
+    networks:
+      - blockchain
     stdin_open: true
     tty: true
-    # Remove o command redundante (já definido no Dockerfile)
+
+networks:
+  blockchain:
+    driver: bridge
+

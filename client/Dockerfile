@@ -1,20 +1,15 @@
+# Imagem base
 FROM python:3.12-slim
 
+# Diretório de trabalho no container
 WORKDIR /app
 
-# Instala dependências do sistema
-RUN apt-get update && apt-get install -y \
-    python3-dev \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
-
-# Instala pipx para instalação segura
-RUN python -m pip install --user pipx && \
-    python -m pipx ensurepath
-
-
-# Copia e instala dependências Python
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
+# Copia os arquivos
 COPY . .
+
+# Instala dependências
+RUN pip install --upgrade pip setuptools
+RUN pip install -r requirements.txt
+
+# Comando padrão
+CMD ["bash"]

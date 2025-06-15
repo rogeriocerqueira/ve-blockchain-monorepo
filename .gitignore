@@ -86,3 +86,19 @@ htmlcov/
 
 # VS Code
 .settings/
+
+
+# Ambiente Python
+client/venv/
+__pycache__/
+*.pyc
+
+# Node
+smart-contract/node_modules/
+smart-contract/build/
+
+# Docker
+*.log
+
+# Arquivos sensíveis
+client/.env
