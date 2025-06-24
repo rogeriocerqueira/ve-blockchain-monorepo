@@ -112,9 +112,15 @@ O SDK Python funciona bem para testes, protótipos e alguns casos simples, mas n
 Passo a passo para testar as funções 
 +---------------------------------------+
 
-truffle console :: Entra no terminal truffle
+
+
+truffle console                                                                                            :: Entra no terminal truffle
+
+
+const contrato = await RechargeContract.deployed();
+
 await contrato.reservarPosto("CLIENTE01", "POSTO01");                                                      :: Fazer uma Reserva
-await contrato.realizarPagamento("CLIENTE01", "POSTO01", { value: web3.utils.toWei('1', 'ether') });       :: Realizar Pagamaento
+await contrato.realizarPagamento("CLIENTE01", "POSTO01", { value: web3.utils.toWei('1', 'ether') });       :: Realizar Pagamento
 
 
 await contrato.iniciarRecarga("CLIENTE01", "POSTO01");                                                     ::  Iniciar Recarga
@@ -122,11 +128,29 @@ await contrato.finalizarRecarga("CLIENTE01", "POSTO01");                        
 
 
 const historico = await contrato.consultarHistorico();                                                     :: Consultar Histórico
-cconsole.log(historico);                                                                                           
+console.log(historico);                                                                                           
 
 const contador = await contrato.contador();                                                                :: Conferir o contador de transações
 console.log(contador.toString());
- 
- Obs: 1. Rodar script ./setup_blockchain.sh (no raiz)     
-      2. Entrar no cliente e criar o venv
-      3. Testar as funções (smart contract)
+
+
+
+const resultado = await contrato.reservarPosto("CLIENTE01", "POSTO01");
+
+// Para ver todos os eventos e parâmetros:
+console.log(resultado.logs);
+
+// Para pegar o primeiro evento emitido (se houver):
+const evento = resultado.logs[0];
+
+// Nome do evento:
+console.log(evento.event);  // Exemplo: 'NovaTransacao'
+
+// Parâmetros do evento (args):
+console.log(evento.args);
+
+// Se quiser imprimir algum argumento específico, por exemplo:
+// (supondo que o evento tenha um parâmetro chamado 'cliente')
+console.log(evento.args.cliente);
+
+console.log(resultado.logs);
