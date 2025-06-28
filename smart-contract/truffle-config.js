@@ -13,7 +13,7 @@ module.exports = {
   networks: {
     development: {
       host: "127.0.0.1",
-      port: 8545,
+      port: 7545,
       network_id: "*",
       gas: 6600000, // 🔥 Abaixo do limite do bloco
       gasPrice: 20000000000 // 20 Gwei
